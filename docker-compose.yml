@@ -1,0 +1,17 @@
+services:
+  backend:
+    image: teami2022/pizza:1.0.1
+    ports:
+      - "8000:8000"
+    labels:
+      - traefik.enable=true
+      - traefik.http.services.backend.loadbalancer.server.port=8000
+      - traefik.http.routers.backend.entryPoints=websecure
+      - traefik.http.routers.backend.rule=Host(`api.techeer.ddns.net`)
+      - traefik.http.routers.backend.tls.certResolver=letsencrypt
+    networks:
+      - ryan_gitops-network
+
+networks:
+  ryan_gitops-network:
+    external: true
