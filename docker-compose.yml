@@ -1,6 +1,6 @@
 services:
   backend:
-    image: teami2022/pizza:1.0.2
+    image: teami2022/pizza:1.0.3
     ports:
       - "8000:8000"
     labels:
